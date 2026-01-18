@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hora do Click — Como ganhar dinheiro com a internet</title>
+  <meta name="description" content="Hora do Click: guia completo e prático sobre como ganhar dinheiro com a internet e entender o mercado de trabalho digital." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1b33;
+      --panel2:#0b1730;
+      --text:#e9efff;
+      --muted:#b8c6ff;
+      --brand:#7c5cff;
+      --brand2:#22d3ee;
+      --ok:#22c55e;
+      --warn:#fbbf24;
+      --bad:#fb7185;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(124,92,255,.25), transparent 55%),
+        radial-gradient(900px 600px at 80% 0%, rgba(34,211,238,.18), transparent 55%),
+        radial-gradient(900px 700px at 70% 85%, rgba(34,197,94,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg), #070b14);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(1120px, 92vw); margin:0 auto; }
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(11,18,32,.72);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 25px rgba(124,92,255,.25);
+      position:relative; overflow:hidden;
+    }
+    .logo::after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), transparent 40%);
+      transform: rotate(15deg);
+    }
+    .brand small{ display:block; font-weight:600; color:var(--muted); margin-top:-2px; }
+    nav{
+      display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .navlink{
+      padding:10px 12px; border-radius:12px;
+      border:1px solid transparent;
+      color:var(--muted);
+      transition: .2s ease;
+      font-weight:650;
+      font-size:14px;
+    }
+    .navlink:hover{
+      border-color: var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+    .cta{
+      padding:10px 14px;
+      border-radius:14px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color:#06101f;
+      font-weight:900;
+      box-shadow: 0 16px 36px rgba(124,92,255,.25);
+      border:0;
+      cursor:pointer;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    .cta:hover{ transform: translateY(-1px); filter:brightness(1.05); }
+
+    /* Hero */
+    header.hero{
+      padding:48px 0 18px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:26px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:-80px;
+      background: radial-gradient(circle at 25% 15%, rgba(34,211,238,.22), transparent 45%),
+                  radial-gradient(circle at 70% 40%, rgba(124,92,255,.22), transparent 46%);
+      z-index:0;
+    }
+    .hero-card > *{ position:relative; z-index:1; }
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-weight:700;
+      font-size:13px;
+    }
+    .kdot{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--ok);
+      box-shadow: 0 0 0 6px rgba(34,197,94,.12);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(30px, 3.4vw, 46px);
+      line-height:1.12;
+      letter-spacing:-.6px;
+    }
+    .lead{
+      color:var(--muted);
+      font-size:16px;
+      margin:0 0 18px;
+    }
+    .hero-actions{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .ghost{
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-weight:850;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .ghost:hover{ transform: translateY(-1px); background: rgba(255,255,255,.05); }
+    .mini{
+      display:grid;
+      gap:14px;
+    }
+    .mini .box{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding:18px;
+    }
+    .box h3{ margin:0 0 6px; font-size:16px; }
+    .box p{ margin:0; color:var(--muted); font-size:14px; }
+    .pill-row{
+      display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;
+    }
+    .pill{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-weight:750;
+      font-size:12px;
+    }
+
+    /* Sections */
+    section{ padding:24px 0; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:16px;
+      margin: 0 0 14px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:24px;
+      letter-spacing:-.3px;
+    }
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+      max-width:70ch;
+      font-size:14px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 6;
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 14px 34px rgba(0,0,0,.18);
+    }
+    .card h3{ margin:0 0 10px; font-size:18px; letter-spacing:-.2px; }
+    .card p{ margin:0 0 10px; color:var(--muted); }
+    .card ul{ margin:0; padding-left:18px; color:var(--muted); }
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:10px;
+      background: rgba(255,255,255,.03);
+    }
+    .tag i{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--brand2);
+      box-shadow: 0 0 0 6px rgba(34,211,238,.10);
+      display:inline-block;
+    }
+
+    .full{ grid-column: 1 / -1; }
+    .span4{ grid-column: span 4; }
+    .span8{ grid-column: span 8; }
+
+    .note{
+      border-left: 3px solid rgba(34,211,238,.8);
+      padding:10px 12px;
+      background: rgba(34,211,238,.06);
+      border-radius: 12px;
+      color: var(--muted);
+      margin-top:12px;
+      font-size:14px;
+    }
+
+    /* Accordion */
+    details{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.03);
+      padding:14px 16px;
+    }
+    details + details{ margin-top:10px; }
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .chev{
+      width:12px; height:12px;
+      border-right:2px solid var(--muted);
+      border-bottom:2px solid var(--muted);
+      transform: rotate(-45deg);
+      transition:.2s ease;
+      opacity:.9;
+      flex:0 0 auto;
+    }
+    details[open] .chev{ transform: rotate(45deg); }
+    details p{ margin:10px 0 0; color:var(--muted); }
+
+    /* Roadmap */
+    .roadmap{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .step{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .step::before{
+      content:"";
+      position:absolute; inset:-40px;
+      background: radial-gradient(circle at 20% 20%, rgba(124,92,255,.18), transparent 50%);
+      z-index:0;
+    }
+    .step > *{ position:relative; z-index:1; }
+    .num{
+      width:36px; height:36px; border-radius:12px;
+      background: rgba(124,92,255,.18);
+      border:1px solid rgba(124,92,255,.35);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:950;
+      margin-bottom:10px;
+    }
+    .step h4{ margin:0 0 6px; font-size:16px; }
+    .step p{ margin:0; color:var(--muted); font-size:14px; }
+
+    /* Footer */
+    footer{
+      padding:28px 0 40px;
+      color: rgba(184,198,255,.9);
+      border-top:1px solid var(--border);
+      margin-top:24px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      align-items:start;
+    }
+    .fine{ font-size:13px; color:rgba(184,198,255,.85); }
+    .toast{
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15,27,51,.92);
+      border:1px solid var(--border);
+      padding:12px 14px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      display:none;
+      max-width: min(560px, 92vw);
+      z-index: 99;
+    }
+    .toast strong{ display:block; }
+    .toast span{ color:var(--muted); font-size:13px; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .card{ grid-column: 1 / -1; }
+      .span4, .span8{ grid-column: 1 / -1; }
+      .roadmap{ grid-template-columns: 1fr; }
+      nav{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand" aria-label="Hora do Click">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div>Hora do Click</div>
+          <small>Guia completo para renda online + carreira digital</small>
+        </div>
+      </div>
+
+      <nav aria-label="Navegação">
+        <a class="navlink" href="#inicio">Início</a>
+        <a class="navlink" href="#caminhos">Caminhos</a>
+        <a class="navlink" href="#mercado">Mercado</a>
+        <a class="navlink" href="#plano">Plano 30 dias</a>
+        <a class="navlink" href="#faq">Dúvidas</a>
+      </nav>
+
+      <button class="cta" id="btnChecklist" type="button">Baixar Checklist</button>
+    </div>
+  </div>
+
+  <header class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <div class="kicker"><span class="kdot"></span> Estratégia > sorte: renda online com consistência</div>
+        <h1>Como ganhar dinheiro com a internet — de forma realista e sustentável</h1>
+        <p class="lead">
+          O <strong>Hora do Click</strong> é um site para quem quer entender <strong>quais caminhos existem</strong>,
+          como o <strong>mercado de trabalho</strong> funciona na prática e como criar um plano para sair do “vou tentar”
+          e chegar no “tenho processo e resultados”.
+        </p>
+
+        <div class="hero-actions">
+          <button class="cta" type="button" id="btnComecar">Quero começar agora</button>
+          <a class="ghost" href="#caminhos">Ver caminhos de renda</a>
+          <a class="ghost" href="#mercado">Entender o mercado</a>
+        </div>
+
+        <div class="note">
+          <strong>Importante:</strong> “Ganhar dinheiro na internet” não é um botão mágico.
+          É trabalho (muitas vezes igual ou mais do que fora da internet), só que com
+          <strong>alavancas</strong>: alcance, automação, distribuição e escala.
+        </div>
+      </div>
+
+      <div class="mini" aria-label="Resumo rápido">
+        <div class="box">
+          <h3>O que você vai encontrar aqui</h3>
+          <p>
+            Explicações completas sobre as áreas mais comuns de renda online, o que estudar,
+            como vender, como cobrar e como construir uma carreira com previsibilidade.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Freelancer</span>
+            <span class="pill">CLT / PJ</span>
+            <span class="pill">Remoto</span>
+            <span class="pill">Conteúdo</span>
+            <span class="pill">E-commerce</span>
+            <span class="pill">Serviços</span>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>Regra de ouro</h3>
+          <p>
+            Foque em <strong>habilidade + portfólio + oferta</strong>. A internet é um grande shopping:
+            quem mostra valor e sabe entregar, vende.
+          </p>
+        </div>
+
+        <div class="box">
+          <h3>Evite ciladas</h3>
+          <p>
+            Desconfie de promessas de “ganhe X em 7 dias”. Procure por processos:
+            estudo, execução, testes, feedback e melhoria contínua.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Caminhos -->
+    <section id="caminhos">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Caminhos reais para ganhar dinheiro com a internet</h2>
+            <p>
+              Não existe um único “melhor”. Existe o que combina com seu perfil, tempo disponível,
+              acesso a ferramentas e o quanto você quer construir um ativo (audiência, produto, loja)
+              versus trocar tempo por dinheiro (serviço).
+            </p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="tag"><i></i> Prestação de serviços (Freelancer)</div>
+            <h3>1) Serviços digitais: o jeito mais rápido de começar</h3>
+            <p>
+              Você oferece uma habilidade para resolver um problema: design, edição de vídeo, social media,
+              programação, copywriting, automações, tráfego pago, suporte, tradução, etc.
+              A vantagem é que dá para iniciar com baixo investimento e validar rápido.
+            </p>
+            <ul>
+              <li><strong>Como começar:</strong> escolha 1 serviço, faça 3 projetos fictícios (portfólio) e ofereça.</li>
+              <li><strong>Como cobrar:</strong> por pacote/resultado (preferível) ou por hora (se estiver iniciando).</li>
+              <li><strong>Como escalar:</strong> processos, templates, aumentar ticket, criar equipe/parcerias.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag"><i></i> Trabalho remoto (CLT ou PJ)</div>
+            <h3>2) Emprego remoto: previsibilidade + carreira</h3>
+            <p>
+              Muitas empresas contratam para trabalho remoto. Aqui você entra como parte de um time.
+              A internet vira o “escritório”, e seu salário depende do cargo e do nível (júnior/pleno/sênior).
+            </p>
+            <ul>
+              <li><strong>CLT:</strong> carteira, benefícios, estabilidade relativa.</li>
+              <li><strong>PJ:</strong> maior flexibilidade e, às vezes, pagamento maior — mas com mais responsabilidades.</li>
+              <li><strong>Como entrar:</strong> currículo objetivo, LinkedIn forte, portfólio e entrevistas.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag"><i></i> Conteúdo & audiência</div>
+            <h3>3) Criar conteúdo: construir um ativo que vende sempre</h3>
+            <p>
+              Aqui você cria audiência (YouTube, TikTok, Instagram, blog, newsletter) e monetiza com:
+              anúncios, afiliados, patrocínios, produtos, serviços, comunidade, consultoria.
+              É mais lento no início, mas pode virar um “motor” constante de vendas.
+            </p>
+            <ul>
+              <li><strong>Base:</strong> nicho + consistência + oferta (o que você vende).</li>
+              <li><strong>Conteúdo que funciona:</strong> tutoriais, comparativos, estudos de caso, bastidores.</li>
+              <li><strong>Risco:</strong> depender só de plataforma; por isso, capture e-mails/contatos.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag"><i></i> Afiliados & comissões</div>
+            <h3>4) Marketing de afiliados: comissão por indicação</h3>
+            <p>
+              Você recomenda um produto/serviço e ganha comissão quando ocorre a venda.
+              Funciona bem com conteúdo (reviews, listas, tutoriais) e com tráfego pago (com cuidado).
+            </p>
+            <ul>
+              <li><strong>Começo inteligente:</strong> escolha um nicho, teste 2–3 produtos, faça conteúdo útil.</li>
+              <li><strong>O que dá errado:</strong> postar link sem estratégia e sem confiança do público.</li>
+              <li><strong>Como melhorar:</strong> compare produtos, mostre resultados e ensine o uso.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag"><i></i> Produtos digitais</div>
+            <h3>5) Produtos digitais: curso, e-book, templates e ferramentas</h3>
+            <p>
+              Em vez de vender tempo, você vende um “pacote” de conhecimento ou solução: aulas,
+              planilhas, presets, modelos de design, prompts, scripts, consultorias gravadas.
+              A entrega pode ser automática (excelente para escala).
+            </p>
+            <ul>
+              <li><strong>Boa ideia:</strong> criar produto a partir do que você já entrega como serviço.</li>
+              <li><strong>Validação:</strong> venda primeiro (pré-venda), depois produza com feedback.</li>
+              <li><strong>Escala:</strong> funil simples: conteúdo → captura → oferta.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag"><i></i> E-commerce & serviços locais</div>
+            <h3>6) E-commerce e negócios locais com internet</h3>
+            <p>
+              Vender online não é só “loja enorme”. Pode ser: produtos artesanais, revenda,
+              dropshipping (com atenção), ou até serviços locais (barbearia, estética) usando
+              marketing digital para encher agenda.
+            </p>
+            <ul>
+              <li><strong>Se é produto:</strong> margem, logística, fotos, anúncio, atendimento.</li>
+              <li><strong>Se é serviço local:</strong> prova social, antes/depois, WhatsApp, Google Meu Negócio.</li>
+              <li><strong>Regra:</strong> cuide do pós-venda — internet é reputação.</li>
+            </ul>
+          </article>
+
+          <article class="card full">
+            <div class="tag"><i></i> Como escolher um caminho (sem travar)</div>
+            <h3>Escolha simples em 3 perguntas</h3>
+            <p>
+              Para decidir rápido e começar hoje, responda:
+              <strong>(1)</strong> Você quer dinheiro mais rápido? (serviço) ou construir ativo? (conteúdo/produto)
+              <strong>(2)</strong> Você prefere aparecer? (conteúdo) ou ficar nos bastidores? (serviço/tech)
+              <strong>(3)</strong> Você já tem uma habilidade vendável? Se não, escolha uma e pratique 30 dias.
+            </p>
+            <div class="note">
+              Dica prática: comece com <strong>serviço</strong> para gerar caixa e experiência, e em paralelo construa
+              <strong>conteúdo</strong> para atrair clientes e oportunidades.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <
